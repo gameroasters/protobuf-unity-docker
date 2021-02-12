@@ -16,4 +16,7 @@ pr-dlls:
 	docker run -it -v $(shell pwd):/mounted ${CONTAINER}:latest /bin/bash -c "\
 	cp /protobuf/dlls/*.dll /mounted/dlls"
 
+pr-dlls-zip: pr-dlls
+	docker run -it -v $(shell pwd):/mounted ${CONTAINER}:latest /bin/bash -c "\
+	pwd && zip /mounted/dlls/protobuf_unity_dlls.zip /mounted/dlls/*.dll"
 

@@ -3,7 +3,7 @@ LABEL maintainer="extrawurst"
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
     apt-get install -y \
-    curl unzip protobuf-compiler
+    curl unzip zip protobuf-compiler
 
 RUN mkdir /protobuf/
 WORKDIR /protobuf/
