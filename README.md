@@ -1,4 +1,4 @@
-# protobuf-unity
+# protobuf-unity-docker
 
 Cross platform functionality for `csharp` and `rust` [Protobuf](https://developers.google.com/protocol-buffers) file generation and extraction of `.dll` files for Unity.
 Utilizes docker container.
