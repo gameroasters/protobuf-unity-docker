@@ -1,6 +1,6 @@
 # protobuf-unity
 
-Cross platform functionality for [Protobuf](https://developers.google.com/protocol-buffers) file compilation to `csharp` and `rust` and extraction of `.dll` files for use in Unity.
+Cross platform functionality for `csharp` and `rust` [Protobuf](https://developers.google.com/protocol-buffers) file generation and extraction of `.dll` files for Unity.
 
 ### Requirements
 
