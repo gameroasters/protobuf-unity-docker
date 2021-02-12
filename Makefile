@@ -1,10 +1,19 @@
 CONTAINER=gameroasters/protobuf-unity
 
-docker-build:
+build:
 	docker build -t ${CONTAINER}:latest -f Dockerfile .
 
-proto-gen:
-	docker run -it -v $(shell pwd):/schema ${CONTAINER}:latest /bin/bash -c "\
-	protoc -I=schema/ --rust_out=schema/ foo.proto && \
-	protoc -I=schema/ --csharp_out=schema/ foo.proto"
+pr-all: pr-gen pr-dlls
+
+pr-gen:
+	mkdir -p proto/
+	docker run -it -v $(shell pwd):/mounted ${CONTAINER}:latest /bin/bash -c "\
+	protoc -I=mounted/ --rust_out=mounted/proto $(PROTO_FILE) && \
+	protoc -I=mounted/ --csharp_out=mounted/proto $(PROTO_FILE)"
+
+pr-dlls:
+	mkdir -p dlls/
+	docker run -it -v $(shell pwd):/mounted ${CONTAINER}:latest /bin/bash -c "\
+	cp /protobuf/dlls/*.dll /mounted/dlls"
+
 
