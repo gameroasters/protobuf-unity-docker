@@ -8,20 +8,24 @@ RUN apt-get update && \
 RUN mkdir /protobuf/
 WORKDIR /protobuf/
 
-### Install protoc binary with rust plugin
+### ==== Install protoc ====
+
+### Install protoc binary 
 RUN curl -L https://github.com/protocolbuffers/protobuf/releases/download/v3.14.0/protoc-3.14.0-linux-x86_64.zip --output protoc.zip && \
     unzip protoc.zip -d protoc/ && \
-    cp protoc/bin/protoc /usr/local/bin && \
+    cp -r protoc/ /usr/local/bin && \
     rm -rf protoc/ && \
     rm protoc.zip
+# with rust plugin
 RUN cargo install protobuf-codegen
 RUN PATH="$HOME/.cargo/bin:$PATH"
 
+### ==== DLL Extraction ====
 RUN mkdir -p /protobuf/nuget/ 
 RUN mkdir -p /protobuf/dlls/
 WORKDIR /protobuf/nuget/
 
-# Get NuGet pacakges and extract dlls
+#Get NuGet packages
 ARG nuget_url=https://www.nuget.org/api/v2/package
 RUN curl -L ${nuget_url}/Google.Protobuf/3.14.0 --output google.protobuf.zip && \
     curl -L ${nuget_url}/System.Memory/4.5.4 --output system.memory.zip && \
