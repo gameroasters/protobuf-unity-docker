@@ -17,10 +17,10 @@ Utilizes docker container.
 ### Commands
 
 1. `make build` to setup docker image
-2. Place `.proto` file, then `make pr-gen proto=<PROTO_FILE>` to generate files in `proto/`
+2. Place `.proto` files, then `make pr-gen` to generate files in `proto/`
 3. _Optional: `make pr-dlls` to extract `.dll` files into `dlls/`_
    - _`make pr-dlls-zip` to get a `.zip` file_
 
 _OR_
 
-2. `make pr-all proto=<PROTO_FILE>` for both steps at once
+2. `make pr-all` for both steps at once
