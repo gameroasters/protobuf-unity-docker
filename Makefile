@@ -2,7 +2,7 @@ CONTAINER=gameroasters/protobuf-unity
 DLLS_ZIP_NAME=protobuf_unity_dlls
 
 build:
-	docker build -t ${CONTAINER}:latest -f Dockerfile . --build-arg USE_GOOGLE_TYPES=${USE_GOOGLE_TYPES}
+	docker build -t ${CONTAINER}:latest -f Dockerfile .
 
 pr-all: pr-gen pr-dlls-zip
 

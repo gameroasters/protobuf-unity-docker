@@ -11,14 +11,9 @@ WORKDIR /protobuf/
 ### ==== Install protoc ====
 
 ### Install protoc binary 
-ARG USE_GOOGLE_TYPES=False
 RUN curl -L https://github.com/protocolbuffers/protobuf/releases/download/v3.14.0/protoc-3.14.0-linux-x86_64.zip --output protoc.zip && \
-    unzip protoc.zip -d protoc/
-RUN if [ "$USE_GOOGLE_TYPES" = "True" ]; then \
-    cp -r protoc/ /usr/local/bin; \
-    else \
-    cp -r protoc/bin/protoc /usr/local/bin; \
-    fi
+    unzip protoc.zip -d protoc/ && \
+    cp -r protoc/ /usr/local/bin
 RUN rm -rf protoc/ && rm protoc.zip
 
 # with rust plugin
