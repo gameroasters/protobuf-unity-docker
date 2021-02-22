@@ -25,11 +25,11 @@ jobs:
           name: protobuf_unity_dlls.zip
           path: ./zip/protobuf_unity_dlls.zip
 
-      - name: Login to Docker Hub
-        run: |
-          docker login \
-          -u ${{ secrets.DOCKER_USERNAME }} \
-          -p ${{ secrets.DOCKER_PASSWORD }}
+      # - name: Login to Docker Hub
+      #   run: |
+      #     docker login \
+      #     -u ${{ secrets.DOCKER_USERNAME }} \
+      #     -p ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Publish Docker image
         run: docker push gameroasters/protobuf-unity:${{ steps.get_version.outputs.version }}
