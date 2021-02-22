@@ -18,6 +18,8 @@ Utilizes docker container.
 
 One-time setup: `make build` to build docker image
 
+Then, to execute the following example steps all at once, just use `make pr-all`. Otherwise follow the next steps.
+
 <sup>Tip: If the following commands cause you trouble, try to leave out `shell` in the `docker run -v $(shell pwd)` part. Just use `$(pwd)` instead.</sup>
 
 ### Generate `.cs` and `.rs` schema files
