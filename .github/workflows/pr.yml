@@ -13,7 +13,7 @@ jobs:
         run: make build
 
       - name: Extract .net DLL
-        run: make pr-dlls-zip
+        run: make extract-dlls-zip
 
       - uses: actions/upload-artifact@v1
         with:

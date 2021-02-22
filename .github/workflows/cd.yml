@@ -18,7 +18,7 @@ jobs:
         run: docker build -t gameroasters/protobuf-unity:${{ steps.get_version.outputs.version }} -f Dockerfile .
 
       - name: Extract .net DLL zip
-        run: make pr-dlls-zip
+        run: make extract-dlls-zip
 
       - uses: actions/upload-artifact@v1
         with:
