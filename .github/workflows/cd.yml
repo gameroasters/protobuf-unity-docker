@@ -23,7 +23,7 @@ jobs:
       - uses: actions/upload-artifact@v1
         with:
           name: protobuf_unity_dlls.zip
-          path: ./zip/protobuf_unity_dlls.zip
+          path: ./dlls/protobuf_unity_dlls.zip
 
       - name: Login to Docker Hub
         run: |

@@ -10,8 +10,8 @@ Utilizes docker container.
 
 ### Usage
 
-1. Create [`.proto`](https://developers.google.com/protocol-buffers/) file
-2. Generate `.rs` and `.cs` protobuf files using [protoc](https://github.com/protocolbuffers/protobuf/releases/tag/v3.14.0) with rust plugin and [well-known google types](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf) in [docker container](https://hub.docker.com/repository/docker/gameroasters/protobuf-unity)
+1. Create [proto3 compliant](https://developers.google.com/protocol-buffers/docs/proto3) `.proto` files
+2. Generate `.rs` and `.cs` protobuf files using [protoc from v3.14.0 release](https://github.com/protocolbuffers/protobuf/releases/tag/v3.14.0) with [rust plugin](https://github.com/stepancheg/rust-protobuf/tree/master/protobuf-codegen) and [well-known google types](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf) in [docker container](https://hub.docker.com/repository/docker/gameroasters/protobuf-unity)
 3. Download `.dll` files for use with Unity from [releases](https://github.com/kroonhorstdino/protobuf-unity/releases) or extract manually
 
 ### Commands
