@@ -1,6 +1,5 @@
 FROM rust:1.49
 LABEL maintainer="extrawurst"
-ARG PROTOBUF_TAG
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
     apt-get install -y \

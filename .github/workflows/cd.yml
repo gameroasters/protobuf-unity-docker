@@ -15,7 +15,7 @@ jobs:
         run: echo ::set-output name=version::${GITHUB_REF/refs\/tags\//}
 
       - name: Build Docker image
-        run: docker build -t gameroasters/protobuf-unity:${{ steps.get_version.outputs.version }} --build-arg PROTOBUF_TAG=${{ steps.get_version.outputs.version }} -f Dockerfile .
+        run: docker build -t gameroasters/protobuf-unity:${{ steps.get_version.outputs.version }} -f Dockerfile .
 
       - name: Extract .net DLL zip
         run: make pr-dlls-zip
@@ -31,14 +31,14 @@ jobs:
       #     -u ${{ secrets.DOCKER_USERNAME }} \
       #     -p ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Publish Docker image
-        run: docker push gameroasters/protobuf-unity:${{ steps.get_version.outputs.version }}
+      # - name: Publish Docker image
+      #   run: docker push gameroasters/protobuf-unity:${{ steps.get_version.outputs.version }}
 
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
           prerelease: ${{ contains(github.ref, '-') }}
           files: |
-            ./zip/protobuf_unity_dlls.zip
+            ./dlls/protobuf_unity_dlls.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
