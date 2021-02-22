@@ -1,0 +1,21 @@
+name: PR
+on:
+  pull_request:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build Docker image
+        run: make build
+
+      - name: Extract .net DLL
+        run: make pr-dlls-zip
+
+      - uses: actions/upload-artifact@v1
+        with:
+          name: protobuf_unity_dlls.zip
+          path: ./zip/protobuf_unity_dlls.zip
