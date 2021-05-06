@@ -17,7 +17,7 @@ RUN curl -L https://github.com/protocolbuffers/protobuf/releases/download/v3.14.
 RUN rm -rf protoc/ && rm protoc.zip
 
 # with rust plugin
-RUN cargo install protobuf-codegen --vers 2.22.1
+RUN cargo install --vers 2.22.1 protobuf-codegen
 RUN PATH="$HOME/.cargo/bin:$PATH"
 
 ### ==== DLL Extraction ====
